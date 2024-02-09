@@ -9,12 +9,19 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-public function index(Request $request){
-    return new TaskCollection(Task::all());
-}
+    public function index(Request $request)
+    {
+        return new TaskCollection(Task::all());
+    }
 
 
-public function show(Request $request, Task $task){
-return new TaskResource($task);
-}
+    public function store(Request $request, Task $task)
+    {
+        $validated = $request->validate([
+            // 'title' => 'required|max:225'
+        ]);
+        $task = Task::create($validated);
+
+        return new TaskResource($task);
+    }
 }
