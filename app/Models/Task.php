@@ -17,9 +17,7 @@ class Task extends Model
     protected $casts = [
         'is_done' => 'boolean',
     ];
-    // protected $casts = [
-    //     'is_done' => 'boolean'
-    // ];
+  
 
     protected $hidden = [
         'updated_at'
