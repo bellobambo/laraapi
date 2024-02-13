@@ -28,7 +28,8 @@ class TaskController extends Controller
     public function store(StoreTaskRequest $request)
     {
         $validated = $request->validated();
-        $task = Auth::user()->tasks()->create($validated);
+        $user = Auth::user(); // Ensure you're retrieving the authenticated user
+        $task = $user->tasks()->create($validated);
 
         return new TaskResource($task);
     }

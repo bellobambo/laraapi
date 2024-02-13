@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTaskRequest extends FormRequest
+class UpdateProjectRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,6 @@ class UpdateTaskRequest extends FormRequest
     {
         return [
             'title' => 'sometimes|required|max:255',
-            'is_done' => 'sometimes|boolean',
-            'project_id' => 'nullable|exists:projects,id'
         ];
     }
 }
